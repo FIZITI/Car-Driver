@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Camera : MonoBehaviour
@@ -8,16 +6,14 @@ public class Camera : MonoBehaviour
     [SerializeField] private float _positionOffset;
     private Vector3 _newPosition;
 
-    private void Awake()
-    {
-        _newPosition = transform.position;
-
-    }
-
     private void LateUpdate()
     {
-        _newPosition.x = _target.transform.position.x - _positionOffset;
-        _newPosition.z = _target.transform.position.z;
-        transform.position = _newPosition;
+        if (_target != null)
+        {
+            _newPosition.x = _target.transform.position.x - _positionOffset;
+            _newPosition.y = _target.transform.position.y - _positionOffset;
+            _newPosition.z = _target.transform.position.z;
+            transform.position = _newPosition;
+        }
     }
 }

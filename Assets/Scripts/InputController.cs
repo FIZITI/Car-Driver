@@ -20,7 +20,7 @@ public class InputController : MonoBehaviour
         }
     }
 
-    private void AbilityOnPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
+/*    private void AbilityOnPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
     {
         throw new NotImplementedException();
     }
@@ -33,7 +33,7 @@ public class InputController : MonoBehaviour
     private void OnDisable()
     {
         _gameInput.Gameplay.Ability.performed -= AbilityOnPerformed;
-    }
+    }*/
 
     private void Update()
     {
