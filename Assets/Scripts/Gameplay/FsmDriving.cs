@@ -9,6 +9,10 @@ public class FsmDriving : MonoBehaviour
     [SerializeField] private float _brakeTorque;
     [SerializeField] private float _driftForwardStiffness;
     [SerializeField] private float _driftSidewaysStiffness;
+    [SerializeField] private ParticleSystem[] _tireParticleSmokes;
+    [SerializeField] private TrailRenderer[] _tireTrailSkids;
+    [SerializeField] private Rigidbody _carRigidbody;
+    [SerializeField] private float _minPossibleMagnitude;
     private Fsm _fsm;
 
     private void Start()
@@ -16,7 +20,7 @@ public class FsmDriving : MonoBehaviour
         _fsm = new Fsm();
 
         _fsm.AddState(new FsmStateFriction(_fsm, _brakeKey));
-        _fsm.AddState(new FsmStateDrift(_fsm, _wheelColliders, _brakeTorque, _brakeKey, _driftForwardStiffness, _driftSidewaysStiffness));
+        _fsm.AddState(new FsmStateDrift(_fsm, _wheelColliders, _brakeTorque, _brakeKey, _driftForwardStiffness, _driftSidewaysStiffness, _tireParticleSmokes, _tireTrailSkids));
 
         _fsm.SetState<FsmStateFriction>();
     }

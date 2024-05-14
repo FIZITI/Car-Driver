@@ -11,6 +11,11 @@ public class FsmStateFriction : FsmState
 
     public override void Update()
     {
+        CheckerTriggerReplace();
+    }
+
+    private void CheckerTriggerReplace()
+    {
         if (Input.GetKey(_brakeKey))
             Fsm.SetState<FsmStateDrift>();
     }

@@ -11,14 +11,18 @@ public class FsmStateDrift : FsmState
     private float _driftSidewaysStiffness;
     private float _normalForwardStiffness;
     private float _normalSidewaysStiffness;
+    private ParticleSystem[] _tireParticleSmokes;
+    private TrailRenderer[] _tireTrailSkids;
 
-    public FsmStateDrift(Fsm fsm, WheelCollider[] wheelColliders, float brakeTorque, KeyCode brakeKey, float driftForwardStiffness, float driftSidewaysStiffness) : base(fsm)
+    public FsmStateDrift(Fsm fsm, WheelCollider[] wheelColliders, float brakeTorque, KeyCode brakeKey, float driftForwardStiffness, float driftSidewaysStiffness, ParticleSystem[] tireParticleSmokes, TrailRenderer[] tireTrailSkids) : base(fsm)
     {
         _wheelColliders = wheelColliders;
         _brakeTorque = brakeTorque;
         _brakeKey = brakeKey;
         _driftForwardStiffness = driftForwardStiffness;
         _driftSidewaysStiffness = driftSidewaysStiffness;
+        _tireParticleSmokes = tireParticleSmokes;
+        _tireTrailSkids = tireTrailSkids;
     }
 
     public override void Enter()
@@ -47,6 +51,9 @@ public class FsmStateDrift : FsmState
             SetNormalStiffness(wheelCollider);
             Friction—hanger(wheelCollider, _driftForwardStiffness, _driftSidewaysStiffness);
         }
+
+        OnTrailSkids();
+        OnParticleSmokes();
     }
 
     private void ExitDrift()
@@ -57,6 +64,9 @@ public class FsmStateDrift : FsmState
 
             Friction—hanger(wheelCollider, _normalForwardStiffness, _normalSidewaysStiffness);
         }
+
+        OffTrailSkids();
+        OffParticleSmokes();
     }
 
     private void Friction—hanger(WheelCollider wheelCollider, float forwardStiffness, float sidewaysStiffness)
@@ -75,5 +85,37 @@ public class FsmStateDrift : FsmState
     {
         _normalForwardStiffness = wheelColider.forwardFriction.stiffness;
         _normalSidewaysStiffness = wheelColider.sidewaysFriction.stiffness;
+    }
+
+    private void OnParticleSmokes()
+    {
+        foreach (ParticleSystem partical in _tireParticleSmokes)
+        {
+            partical.Play();
+        }
+    }
+
+    private void OffParticleSmokes()
+    {
+        foreach (ParticleSystem partical in _tireParticleSmokes)
+        {
+            partical.Stop();
+        }
+    }
+
+    private void OnTrailSkids()
+    {
+        foreach (TrailRenderer trail in _tireTrailSkids)
+        {
+            trail.emitting = true;
+        }
+    }
+
+    private void OffTrailSkids()
+    {
+        foreach (TrailRenderer trail in _tireTrailSkids)
+        {
+            trail.emitting = false;
+        }
     }
 }
