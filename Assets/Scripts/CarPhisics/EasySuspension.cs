@@ -26,6 +26,8 @@ public class EasySuspension : MonoBehaviour {
     private void FixedUpdate()
 	{
 		RelativeBody();
+
+/*		Debug.Log(_rigidbody.velocity.magnitude);*/
 	}
 
 	private void RelativeBody()
