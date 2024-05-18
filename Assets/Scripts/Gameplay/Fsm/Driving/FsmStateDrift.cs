@@ -14,11 +14,9 @@ public class FsmStateDrift : FsmState
     private ParticleSystem[] _tireParticleSmokes;
     private TrailRenderer[] _tireTrailSkids;
     private Rigidbody _rigidbody;
-    private float _minPossibleMagnitude;
-    private bool _enableEffect = false;
     private const bool _turnOn = true;
 
-    public FsmStateDrift(Fsm fsm, WheelCollider[] wheelColliders, float brakeTorque, KeyCode brakeKey, float driftForwardStiffness, float driftSidewaysStiffness, ParticleSystem[] tireParticleSmokes, TrailRenderer[] tireTrailSkids, Rigidbody rigidbody, float minPossibleMagnitude) : base(fsm)
+    public FsmStateDrift(Fsm fsm, WheelCollider[] wheelColliders, float brakeTorque, KeyCode brakeKey, float driftForwardStiffness, float driftSidewaysStiffness, ParticleSystem[] tireParticleSmokes, TrailRenderer[] tireTrailSkids, Rigidbody rigidbody) : base(fsm)
     {
         _wheelColliders = wheelColliders;
         _brakeTorque = brakeTorque;
@@ -28,7 +26,6 @@ public class FsmStateDrift : FsmState
         _tireParticleSmokes = tireParticleSmokes;
         _tireTrailSkids = tireTrailSkids;
         _rigidbody = rigidbody;
-        _minPossibleMagnitude = minPossibleMagnitude;
     }
 
     public override void Enter()
@@ -39,20 +36,19 @@ public class FsmStateDrift : FsmState
     public override void Exit()
     {
         ExitDrift();
-/*        SwitchEffect(false);
-        _enableEffect = false;*/
     }
 
     public override void Update()
     {
         CheckNewState();
-/*        CheckEnableEffect();*/
     }
 
     private void CheckNewState()
     {
         if (!Input.GetKey(_brakeKey))
             Fsm.SetState<FsmStateFriction>();
+        else if (_rigidbody.velocity == Vector3.zero)
+            Fsm.SetState<FsmStateIdle>();
     }
 
     private void EnterDrift()
@@ -66,9 +62,7 @@ public class FsmStateDrift : FsmState
             Friction—hanger(wheelCollider, _driftForwardStiffness, _driftSidewaysStiffness);
         }
 
-/*        _enableEffect = SwitchParticleInclusion(_tireParticleSmokes, _turnOn);*/
-/*        OnTrailSkids();*/
-/*        OnParticleSmokes();*/
+        SwitchEffect(_turnOn);
     }
 
     private void ExitDrift()
@@ -80,10 +74,7 @@ public class FsmStateDrift : FsmState
             Friction—hanger(wheelCollider, _normalForwardStiffness, _normalSidewaysStiffness);
         }
 
-        /*        _enableEffect = SwitchParticleInclusion(_tireParticleSmokes, !_turnOn);*/
-        /*        OffTrailSkids();*/
-        /*        OffParticleSmokes();*/
-/*        _enableEffect = SwitchEffect(!_turnOn);*/
+        SwitchEffect();
     }
 
     private void Friction—hanger(WheelCollider wheelCollider, float forwardStiffness, float sidewaysStiffness)
@@ -104,31 +95,10 @@ public class FsmStateDrift : FsmState
         _normalSidewaysStiffness = wheelColider.sidewaysFriction.stiffness;
     }
 
-/*    private bool OnParticleSmokes()
-    {
-        foreach (ParticleSystem partical in _tireParticleSmokes)
-        {
-            SwitchParticleInclusion(partical, true);
-        }
-
-        return true;
-    }
-
-    private bool OffParticleSmokes()
-    {
-        foreach (ParticleSystem partical in _tireParticleSmokes)
-        {
-            SwitchParticleInclusion(partical, false);
-        }
-
-        return false;
-    }*/
-
-/*    private bool SwitchParticleInclusion(ParticleSystem[] particals, bool turnOn = false)
+    private bool SwitchParticleInclusion(ParticleSystem[] particals, bool turnOn = false)
     {
         foreach (ParticleSystem partical in particals)
         {
-            
             if (turnOn)
             {
                 partical.Play();
@@ -158,60 +128,12 @@ public class FsmStateDrift : FsmState
         }
 
         return turnOn;
-    }*/
-
-    /*    private void SwitchTrailInclusion(TrailRenderer trail, bool _turnOn)
-        {
-            if (_turnOn)
-            {
-                trail.emitting = true;
-            }
-            else
-            {
-                trail.emitting = false;
-            }
-        }
-
-        private bool OnTrailSkids()
-        {
-            foreach (TrailRenderer trail in _tireTrailSkids)
-            {
-
-            }
-
-            return true;
-        }
-
-        private bool OffTrailSkids()
-        {
-            foreach (TrailRenderer trail in _tireTrailSkids)
-            {
-
-            }
-
-            return false;
-        }*/
-
-/*    private void CheckEnableEffect()
-    {
-        if (_rigidbody.velocity.magnitude < _minPossibleMagnitude && _enableEffect)
-        {
-            _enableEffect = SwitchEffect(!_turnOn);
-*//*            _enableEffect = SwitchParticleInclusion(_tireParticleSmokes, !_turnOn);
-            SwitchTrailInclusion(_tireTrailSkids, !_turnOn);*//*
-        }
-        else if (_rigidbody.velocity.magnitude > _minPossibleMagnitude && !_enableEffect)
-        {
-            _enableEffect = SwitchEffect(_turnOn);
-*//*            _enableEffect = SwitchParticleInclusion(_tireParticleSmokes, _turnOn);
-            SwitchTrailInclusion(_tireTrailSkids, _turnOn);*//*
-        }
     }
 
-    private bool SwitchEffect(bool turnOn)
+    private bool SwitchEffect(bool turnOn = false)
     {
         SwitchParticleInclusion(_tireParticleSmokes, turnOn);
         SwitchTrailInclusion(_tireTrailSkids, turnOn);
         return turnOn;
-    }*/
+    }
 }

@@ -1,12 +1,9 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(IControllable))]
 public class InputController : MonoBehaviour
 {
-    private IControllable _controllable;
+    private IControllable[] _controllables;
     private GameInput _gameInput;
 
     private void Awake()
@@ -14,26 +11,13 @@ public class InputController : MonoBehaviour
         _gameInput = new GameInput();
         _gameInput.Enable();
 
-        if (TryGetComponent(out IControllable controllable))
+        _controllables= GetComponentsInChildren<IControllable>();
+
+        if (_controllables == null)
         {
-            _controllable = controllable;
+            throw new Exception($"No IControllable on this object: {gameObject.name}");
         }
     }
-
-/*    private void AbilityOnPerformed(UnityEngine.InputSystem.InputAction.CallbackContext obj)
-    {
-        throw new NotImplementedException();
-    }
-
-    private void OnEnable()
-    {
-        _gameInput.Gameplay.Ability.performed += AbilityOnPerformed;
-    }
-
-    private void OnDisable()
-    {
-        _gameInput.Gameplay.Ability.performed -= AbilityOnPerformed;
-    }*/
 
     private void Update()
     {
@@ -43,6 +27,18 @@ public class InputController : MonoBehaviour
     private void ReadMovement()
     {
         var direction = _gameInput.Gameplay.Movement.ReadValue<Vector3>();
-        _controllable.Move(direction);
+        Debug.Log(direction);
+
+        foreach (IControllable controllable in _controllables)
+        {
+            if (controllable != null)
+            {
+                controllable.Move(direction);
+            }
+            else
+            {
+                throw new Exception($"No controllable in children object {controllable}");
+            }
+        }
     }
 }

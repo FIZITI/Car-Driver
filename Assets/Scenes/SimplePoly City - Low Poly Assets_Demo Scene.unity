@@ -556,12 +556,7 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4638499873089615105, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
   m_PrefabInstance: {fileID: 1547551669}
   m_PrefabAsset: {fileID: 0}
---- !u!54 &14894712 stripped
-Rigidbody:
-  m_CorrespondingSourceObject: {fileID: 3151800515362171122, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
-  m_PrefabInstance: {fileID: 1547551669}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &14894714
+--- !u!114 &14894718
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -570,18 +565,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 14894709}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 37070ac2d4bb05b43a4f7ff9f11a7227, type: 3}
+  m_Script: {fileID: 11500000, guid: 27086bcd0bec5cd4b908097007da3076, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _carRigidbody: {fileID: 14894712}
-  _tireParticleSmokes:
-  - {fileID: 1386850584}
-  - {fileID: 1214488197}
-  _tireTrailSkids:
-  - {fileID: 1954776815}
-  - {fileID: 344857001}
-  _minPossibleMagnitude: 3
-  _newStateKey: 32
 --- !u!1 &15032377 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 31bbda51eeab02f44a8e92a7da2f5ff8, type: 3}
@@ -8894,11 +8880,6 @@ GameObject:
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: b8ee657c6800ab849bb30b4375d02323, type: 3}
   m_PrefabInstance: {fileID: 1444811102}
-  m_PrefabAsset: {fileID: 0}
---- !u!96 &344857001 stripped
-TrailRenderer:
-  m_CorrespondingSourceObject: {fileID: 7618548730935525811, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
-  m_PrefabInstance: {fileID: 1547551669}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &345330567 stripped
 GameObject:
@@ -36801,11 +36782,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 20, y: 0.20000087, z: 20}
   m_Center: {x: 0, y: 0.099996746, z: -0.0000076293945}
---- !u!198 &1214488197 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 5006789405902274437, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
-  m_PrefabInstance: {fileID: 1547551669}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1215609670
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44879,11 +44855,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.3578925, y: 10.411013, z: 7.4074717}
   m_Center: {x: -0.022548912, y: 5.2054796, z: 0.28389153}
---- !u!198 &1386850584 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 1219081696656393872, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
-  m_PrefabInstance: {fileID: 1547551669}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1386888842
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -51313,7 +51284,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9135892956502980767, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9135892956502980767, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
+      propertyPath: _brakeTorque
+      value: 1400
       objectReference: {fileID: 0}
     - target: {fileID: 9135892956502980767, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
       propertyPath: _minPossibleMagnitude
@@ -51321,7 +51296,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9135892956502980767, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
       propertyPath: _driftForwardStiffness
-      value: 4
+      value: 2.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9135892956502980767, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
+      propertyPath: _driftSidewaysStiffness
+      value: 0.6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -51329,7 +51308,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4638499873089615105, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 14894714}
+      addedObject: {fileID: 14894718}
   m_SourcePrefab: {fileID: 100100000, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
 --- !u!1001 &1547596301
 PrefabInstance:
@@ -68356,11 +68335,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 3.1007776, y: 2.2749863, z: 5.965742}
   m_Center: {x: -0.0009114742, y: 1.1323274, z: 0.13397205}
---- !u!96 &1954776815 stripped
-TrailRenderer:
-  m_CorrespondingSourceObject: {fileID: 8206721624052934583, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
-  m_PrefabInstance: {fileID: 1547551669}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1954906437 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: b8ee657c6800ab849bb30b4375d02323, type: 3}
