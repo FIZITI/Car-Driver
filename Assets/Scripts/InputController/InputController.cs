@@ -5,6 +5,8 @@ public class InputController : MonoBehaviour
 {
     private IControllable[] _controllables;
     private GameInput _gameInput;
+    private const float _smoothing = 7f;
+    private Vector3 _currentDirection;
 
     private void Awake()
     {
@@ -29,11 +31,13 @@ public class InputController : MonoBehaviour
         var direction = _gameInput.Gameplay.Movement.ReadValue<Vector3>();
         Debug.Log(direction);
 
+        _currentDirection = Vector3.Lerp(_currentDirection, direction, _smoothing * Time.deltaTime);
+
         foreach (IControllable controllable in _controllables)
         {
             if (controllable != null)
             {
-                controllable.Move(direction);
+                controllable.Move(_currentDirection);
             }
             else
             {
