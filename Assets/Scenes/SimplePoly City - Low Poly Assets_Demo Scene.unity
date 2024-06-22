@@ -51630,6 +51630,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 225890263203531309, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
+      propertyPath: m_SuspensionSpring.damper
+      value: 4500
+      objectReference: {fileID: 0}
     - target: {fileID: 1219081696656393872, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
       propertyPath: InitialModule.startColor.maxColor.b
       value: 1
@@ -51642,6 +51646,46 @@ PrefabInstance:
       propertyPath: InitialModule.startColor.maxColor.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2251771523725456767, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
+      propertyPath: m_SuspensionSpring.damper
+      value: 4500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2251771523725456767, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
+      propertyPath: m_SuspensionSpring.spring
+      value: 40000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2251771523725456767, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumSlip
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2251771523725456767, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
+      propertyPath: m_SidewaysFriction.m_AsymptoteSlip
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2251771523725456767, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumValue
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722242590218603378, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
+      propertyPath: m_SuspensionSpring.damper
+      value: 4500
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722242590218603378, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
+      propertyPath: m_SuspensionSpring.spring
+      value: 40000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722242590218603378, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumSlip
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722242590218603378, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
+      propertyPath: m_SidewaysFriction.m_AsymptoteSlip
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2722242590218603378, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumValue
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 2866633540973300782, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
       propertyPath: _positionOffsetX
       value: 5
@@ -51649,6 +51693,10 @@ PrefabInstance:
     - target: {fileID: 2866633540973300782, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
       propertyPath: _positionOffsetY
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3151800515362171122, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
+      propertyPath: m_Mass
+      value: 1700
       objectReference: {fileID: 0}
     - target: {fileID: 4638499873089615105, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
       propertyPath: m_Name
@@ -51672,15 +51720,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7282731155459665193, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.98565936
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7282731155459665193, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.16874751
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7282731155459665193, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -19.43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7361198995672758848, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
       propertyPath: m_LocalPosition.x
@@ -51745,6 +51793,10 @@ PrefabInstance:
     - target: {fileID: 7618548730935525811, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
       propertyPath: m_Parameters.colorGradient.m_ColorSpace
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985088502770470789, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
+      propertyPath: m_SuspensionSpring.damper
+      value: 4500
       objectReference: {fileID: 0}
     - target: {fileID: 8206721624052934582, guid: 144db8e30b7c6aa4599604dafabb9863, type: 3}
       propertyPath: m_LocalPosition.y
@@ -64217,6 +64269,7 @@ GameObject:
   - component: {fileID: 1849156768}
   - component: {fileID: 1849156767}
   - component: {fileID: 1849156766}
+  - component: {fileID: 1849156769}
   m_Layer: 0
   m_Name: Terrain
   m_TagString: Untagged
@@ -64298,6 +64351,38 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1849156769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1849156765}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_AgentTypeID: 0
+  m_CollectObjects: 0
+  m_Size: {x: 10, y: 10, z: 10}
+  m_Center: {x: 0, y: 2, z: 0}
+  m_LayerMask:
+    m_Bits: 4294967295
+  m_UseGeometry: 0
+  m_DefaultArea: 0
+  m_GenerateLinks: 0
+  m_IgnoreNavMeshAgent: 1
+  m_IgnoreNavMeshObstacle: 1
+  m_OverrideTileSize: 0
+  m_TileSize: 256
+  m_OverrideVoxelSize: 0
+  m_VoxelSize: 0.16666667
+  m_MinRegionArea: 2
+  m_NavMeshData: {fileID: 23800000, guid: bce7f7fcdf9817f40aa8132f32ad348e, type: 2}
+  m_BuildHeightMesh: 0
+  m_LastPosition: {x: 270, y: 0, z: 0}
+  m_LastRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!1 &1849530123 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 100000, guid: 0b6fafa63b69b174584365f2641586a4, type: 3}

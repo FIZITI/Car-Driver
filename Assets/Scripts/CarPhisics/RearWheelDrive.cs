@@ -32,9 +32,7 @@ public class RearWheelDrive : MonoBehaviour, IControllable {
 		{
             _wheel.GetWorldPose(out Vector3 position, out Quaternion rotation);
 
-            Transform shapeTransform = _wheelTransform.GetChild(0);
-			shapeTransform.SetPositionAndRotation(position, rotation);
-			shapeTransform.localScale = new Vector3(1, 1, 1);
+			_wheelShape.transform.SetPositionAndRotation(position, rotation);
 		}
     }
 

@@ -26,28 +26,26 @@ public class EasySuspension : MonoBehaviour {
     private void FixedUpdate()
 	{
 		RelativeBody();
-
-/*		Debug.Log(_rigidbody.velocity.magnitude);*/
 	}
 
 	private void RelativeBody()
     {
-		foreach (WheelCollider wc in _wheelCollider)
+		foreach (WheelCollider wheelCollider in _wheelCollider)
 		{
-			JointSpring spring = wc.suspensionSpring;
+			JointSpring spring = wheelCollider.suspensionSpring;
 
-			spring.spring = Mathf.Pow(Mathf.Sqrt(wc.sprungMass) * _naturalFrequency, 2);
-			spring.damper = 2 * _dampingRatio * Mathf.Sqrt(spring.spring * wc.sprungMass);
+			spring.spring = Mathf.Pow(Mathf.Sqrt(wheelCollider.sprungMass) * _naturalFrequency, 2);
+			spring.damper = 2 * _dampingRatio * Mathf.Sqrt(spring.spring * wheelCollider.sprungMass);
 
-			wc.suspensionSpring = spring;
+			wheelCollider.suspensionSpring = spring;
 
-			Vector3 wheelRelativeBody = transform.InverseTransformPoint(wc.transform.position);
-			float distance = _rigidbody.centerOfMass.y - wheelRelativeBody.y + wc.radius;
+			Vector3 wheelRelativeBody = transform.InverseTransformPoint(wheelCollider.transform.position);
+			float distance = _rigidbody.centerOfMass.y - wheelRelativeBody.y + wheelCollider.radius;
 
-			wc.forceAppPointDistance = distance - _forceShift;
+			wheelCollider.forceAppPointDistance = distance - _forceShift;
 
 			if (spring.targetPosition > 0 && _setSuspensionDistance)
-				wc.suspensionDistance = wc.sprungMass * Physics.gravity.magnitude / (spring.targetPosition * spring.spring);
+				wheelCollider.suspensionDistance = wheelCollider.sprungMass * Physics.gravity.magnitude / (spring.targetPosition * spring.spring);
 		}
 	}
 }
