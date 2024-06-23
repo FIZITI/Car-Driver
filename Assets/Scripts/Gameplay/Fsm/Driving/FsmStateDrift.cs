@@ -40,6 +40,8 @@ public class FsmStateDrift : FsmState
 
     public override void Update()
     {
+        Debug.Log("[Drift]");
+        Debug.Log(_rigidbody.velocity);
         CheckNewState();
     }
 
@@ -106,7 +108,7 @@ public class FsmStateDrift : FsmState
             else
             {
                 partical.Stop();
-                Debug.Log("Stop");
+                Debug.Log("Stop particle drift");
             }
         }
 

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(WheelCollider))]
-public class RearWheelDrive : MonoBehaviour, IControllable {
+public class RearWheelDrive : MonoBehaviour, IMoveControllable {
 	[SerializeField] private float _maxAngle = 30;
 	[SerializeField] private float _maxTorque = 300;
 	[SerializeField] private GameObject _wheelShape;
@@ -36,8 +36,8 @@ public class RearWheelDrive : MonoBehaviour, IControllable {
 		}
     }
 
-    public void Move(Vector3 direction)
+    public void MoveInWheel(Vector3 direction)
     {
-		_moveDirection = direction;
+        _moveDirection = direction;
     }
 }

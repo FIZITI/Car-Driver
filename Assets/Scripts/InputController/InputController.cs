@@ -13,7 +13,7 @@ public class InputController : MonoBehaviour
         _gameInput = new GameInput();
         _gameInput.Enable();
 
-        _controllables= GetComponentsInChildren<IControllable>();
+        _controllables = GetComponentsInChildren<IControllable>();
 
         if (_controllables == null)
         {
@@ -29,7 +29,6 @@ public class InputController : MonoBehaviour
     private void ReadMovement()
     {
         var direction = _gameInput.Gameplay.Movement.ReadValue<Vector3>();
-        Debug.Log(direction);
 
         _currentDirection = Vector3.Lerp(_currentDirection, direction, _smoothing * Time.deltaTime);
 
