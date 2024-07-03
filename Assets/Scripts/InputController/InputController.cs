@@ -1,23 +1,29 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class InputController : MonoBehaviour
 {
-    private IControllable[] _controllables;
+    private List<IControllable> _controllables = new List<IControllable>();
     private GameInput _gameInput;
-    private const float _smoothing = 7f;
     private Vector3 _currentDirection;
+    private IControllable _controllableFromCurrentObject;
+    private IControllable[] _controllablesFromChildren;
+    private const float _smoothing = 7f;
 
     private void Awake()
     {
         _gameInput = new GameInput();
         _gameInput.Enable();
 
-        _controllables = GetComponentsInChildren<IControllable>();
+        _controllableFromCurrentObject = GetComponent<IControllable>();
+        _controllablesFromChildren = GetComponentsInChildren<IControllable>();
 
-        if (_controllables == null)
+        _controllables.AddRange(_controllablesFromChildren);
+
+        if (_controllables.Count == 0)
         {
-            throw new Exception($"No IControllable on this object: {gameObject.name}");
+            throw new Exception($"No IControllable on this object or its children: {gameObject.name}");
         }
     }
 
@@ -42,6 +48,12 @@ public class InputController : MonoBehaviour
             {
                 throw new Exception($"No controllable in children object {controllable}");
             }
+        }
+
+        if (_controllableFromCurrentObject != null)
+        {
+            Debug.Log($"CurrentObjectControllable NOT NULL {_controllableFromCurrentObject} {_currentDirection}" );
+            _controllableFromCurrentObject.Move(_currentDirection);
         }
     }
 }

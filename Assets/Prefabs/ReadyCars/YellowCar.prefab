@@ -5145,7 +5145,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7439749299441308047}
   - component: {fileID: 2251771523725456767}
-  - component: {fileID: 896503871024034506}
   m_Layer: 0
   m_Name: BackRightWheel
   m_TagString: Untagged
@@ -5208,21 +5207,6 @@ WheelCollider:
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
---- !u!114 &896503871024034506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4490430962478224414}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36e41bc28e1aa6140b1a9117168e7a30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxAngle: 30
-  _maxTorque: 1200
-  _wheelShape: {fileID: 2234571764650949275}
 --- !u!1 &4638499873089615105
 GameObject:
   m_ObjectHideFlags: 0
@@ -10133,7 +10117,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7322130229658697199}
   - component: {fileID: 225890263203531309}
-  - component: {fileID: 4996884733336415382}
   m_Layer: 0
   m_Name: FrontLeftWheel
   m_TagString: Untagged
@@ -10196,21 +10179,6 @@ WheelCollider:
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
---- !u!114 &4996884733336415382
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5369820702261328360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36e41bc28e1aa6140b1a9117168e7a30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxAngle: 30
-  _maxTorque: 1200
-  _wheelShape: {fileID: 452044130260895069}
 --- !u!1 &6486760109238076342
 GameObject:
   m_ObjectHideFlags: 0
@@ -10410,7 +10378,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6765869964027952106}
   - component: {fileID: 7985088502770470789}
-  - component: {fileID: 7277738761153815585}
   m_Layer: 0
   m_Name: FrontRightWheel
   m_TagString: Untagged
@@ -10473,21 +10440,6 @@ WheelCollider:
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
---- !u!114 &7277738761153815585
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7585974778980848859}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36e41bc28e1aa6140b1a9117168e7a30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxAngle: 30
-  _maxTorque: 1200
-  _wheelShape: {fileID: 6486760109238076342}
 --- !u!1 &7618548730935525808
 GameObject:
   m_ObjectHideFlags: 0
@@ -10634,7 +10586,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1323654335789516003}
   - component: {fileID: 2722242590218603378}
-  - component: {fileID: 4296064120266414821}
   m_Layer: 0
   m_Name: BackLeftWheel
   m_TagString: Untagged
@@ -10697,21 +10648,6 @@ WheelCollider:
   m_LayerOverridePriority: 0
   m_Enabled: 1
   m_ProvidesContacts: 0
---- !u!114 &4296064120266414821
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7621114565532379426}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 36e41bc28e1aa6140b1a9117168e7a30, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxAngle: 30
-  _maxTorque: 1200
-  _wheelShape: {fileID: 8655712090356062916}
 --- !u!1 &8149778749145675716
 GameObject:
   m_ObjectHideFlags: 0
