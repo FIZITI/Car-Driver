@@ -5,7 +5,7 @@ using UnityEngine;
 public class FsmDriving : MonoBehaviour, IControllable
 {
     [SerializeField] private KeyCode _brakeKey;
-    [SerializeField] private WheelCollider[] _wheelColliders;
+    [SerializeField] private WheelCollider[] _backWheelColliders;
     [SerializeField] private Rigidbody _carRigidbody;
     [SerializeField] private float _brakeTorque;
     [SerializeField] private float _speedTorque;
@@ -15,18 +15,16 @@ public class FsmDriving : MonoBehaviour, IControllable
     [SerializeField] private float _minPossibleMagnitude;
     [SerializeField] private ParticleSystem[] _tireParticleSmokes;
     [SerializeField] private TrailRenderer[] _tireTrailSkids;
-    private Vector3 _moveDirection;
     private Fsm _fsm;
 
     private void Awake()
     {
         _fsm = new Fsm();
 
-        _fsm.AddState(new FsmStateIdle(_fsm, _carRigidbody, _moveDirection,  _brakeKey, _speedStiil));
-        _fsm.AddState(new FsmStateDrive(_fsm, _wheelColliders, _carRigidbody, _moveDirection, _brakeKey, _speedStiil, _speedTorque));
-        _fsm.AddState(new FsmStateBrake(_fsm, _tireParticleSmokes, _tireTrailSkids, _wheelColliders, _carRigidbody, _brakeKey, _driftForwardStiffness, _driftSidewaysStiffness, _brakeTorque, _speedStiil));
+        _fsm.AddState(new FsmStateDrive(_fsm, _backWheelColliders, _brakeKey, _speedTorque));
+        _fsm.AddState(new FsmStateBrake(_fsm, _tireParticleSmokes, _tireTrailSkids, _backWheelColliders, _carRigidbody, _brakeKey, _driftForwardStiffness, _driftSidewaysStiffness, _brakeTorque, _speedStiil));
 
-        _fsm.SetState<FsmStateIdle>();
+        _fsm.SetState<FsmStateDrive>();
     }
 
     private void Update()
@@ -36,8 +34,6 @@ public class FsmDriving : MonoBehaviour, IControllable
 
     public void Move(Vector3 direction)
     {
-        Debug.Log($"FsmDRIVINING {direction}");
-        _moveDirection = direction;
-        Debug.Log($"moveDirection: {_moveDirection}, direction: {direction}");
+        _fsm.UpdateInput(direction);
     }
 }

@@ -51,7 +51,7 @@ public class FsmStateBrake : FsmState
     private void CheckNewState()
     {
         if (!Input.GetKey(_brakeKey))
-            Fsm.SetState<FsmStateIdle>();
+            Fsm.SetState<FsmStateDrive>();
     }
 
     private void StopCarWithEffect()

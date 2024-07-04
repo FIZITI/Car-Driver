@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 public class Fsm
 {
@@ -34,5 +35,10 @@ public class Fsm
     public void Update()
     {
         StateCurrent?.Update();
+    }
+
+    public void UpdateInput(Vector3 moveDirection)
+    {
+        StateCurrent.UpdateInput(moveDirection);
     }
 }
