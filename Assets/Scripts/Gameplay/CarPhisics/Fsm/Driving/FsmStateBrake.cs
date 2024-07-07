@@ -32,6 +32,7 @@ public class FsmStateBrake : FsmState
 
     public override void Enter()
     {
+        EnterEffect();
         EnterBrake();
     }
 
@@ -56,7 +57,7 @@ public class FsmStateBrake : FsmState
 
     private void StopCarWithEffect()
     {
-        if (Mathf.Abs(_rigidbody.velocity.z) < _speedStiil)
+        if (Mathf.Abs(_rigidbody.velocity.magnitude) <= _speedStiil)
         {
             SwitchEffect();
         }
@@ -72,8 +73,14 @@ public class FsmStateBrake : FsmState
             SetNormalStiffness(wheelCollider);
             FrictionÑhanger(wheelCollider, _driftForwardStiffness, _driftSidewaysStiffness);
         }
+    }
 
-        SwitchEffect(_turnOn);
+    private void EnterEffect()
+    {
+        if (Mathf.Abs(_rigidbody.velocity.magnitude) > _speedStiil)
+        {
+            SwitchEffect(_turnOn);
+        }
     }
 
     private void ExitBrake()

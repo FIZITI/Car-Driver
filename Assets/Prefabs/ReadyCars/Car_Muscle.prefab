@@ -5880,12 +5880,11 @@ MonoBehaviour:
   - {fileID: 1984181073373646608}
   - {fileID: 6996515980697655152}
   _carRigidbody: {fileID: 2086027530027694981}
-  _brakeTorque: 800
-  _speedTorque: 1400
-  _speedStiil: 0.2
-  _driftForwardStiffness: 2.2
-  _driftSidewaysStiffness: 0.6
-  _minPossibleMagnitude: 3
+  _brakeTorque: 2000
+  _speedTorque: 2700
+  _speedStiil: 0.05
+  _driftForwardStiffness: 1
+  _driftSidewaysStiffness: 1.4
   _tireParticleSmokes:
   - {fileID: 187795123494477851}
   - {fileID: 41399137202066262}

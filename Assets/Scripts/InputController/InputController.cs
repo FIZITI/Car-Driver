@@ -52,7 +52,6 @@ public class InputController : MonoBehaviour
 
         if (_controllableFromCurrentObject != null)
         {
-            Debug.Log($"CurrentObjectControllable NOT NULL {_controllableFromCurrentObject} {_currentDirection}" );
             _controllableFromCurrentObject.Move(_currentDirection);
         }
     }

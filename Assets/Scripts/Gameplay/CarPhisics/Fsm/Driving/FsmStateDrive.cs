@@ -3,21 +3,23 @@ using UnityEngine;
 public class FsmStateDrive : FsmState
 {
     private WheelCollider[] _wheelColliders;
+    private Rigidbody _rigidbody;
     private Vector3 _moveDirection;
     private KeyCode _brakeKey;
     private float _speedTorque;
 
-    public FsmStateDrive(Fsm fsm, WheelCollider[] wheels, KeyCode brakeKey, float speedTorque) : base(fsm)
+    public FsmStateDrive(Fsm fsm, WheelCollider[] wheels, Rigidbody rigidbody, KeyCode brakeKey, float speedTorque) : base(fsm)
     {
         _wheelColliders = wheels;
+        _rigidbody = rigidbody;
         _brakeKey = brakeKey;
         _speedTorque = speedTorque;
     }
 
     public override void Update()
     {
+        Debug.Log(_rigidbody.velocity);
         ReadInput();
-        Debug.Log($"[DRIVE] {_moveDirection}");
         Drive();
         CheckNewState();
     }
